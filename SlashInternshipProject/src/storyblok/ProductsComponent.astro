@@ -1,0 +1,58 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+---
+
+
+
+<script type="text/javascript" src="src/util/products_functions.js">
+  
+</script>
+
+<div>
+
+  <button onclick="fetchProductData()" class="bg-gray-900 text-gray-200 rounded shadow-lg">
+    Fetch All Products Data
+  </button>  
+
+  <br>
+  <br>
+
+  <label for="priceRange">Price Range:</label>
+  <select id="priceRange" onchange="filterProducts()">
+    <option value="all">All</option>
+    <option value="0-100">0 - 100</option>
+    <option value="101-500">101 - 500</option>
+    <option value="501-1000">501 - 1000</option>
+    <option value="1001">1001+</option>
+  </select>
+</div>
+
+<div>
+  <label for="ratingRange">Rating Range:</label>
+  <select id="ratingRange" onchange="filterProducts()">
+    <option value="all">All</option>
+    <option value="0-1">0 - 1</option>
+    <option value="1-2">1 - 2</option>
+    <option value="2-3">2 - 3</option>
+    <option value="3-4">3 - 4</option>
+    <option value="4-5">4 - 5</option>
+  </select>
+</div>
+
+<div>
+  <label for="sortOrder">Sort by Price:</label>
+  <select id="sortOrder" onchange="sortProducts()">
+    <option value="default">Default</option>
+    <option value="lowToHigh">Low to High</option>
+    <option value="highToLow">High to Low</option>
+  </select>
+</div>
+
+<div {...storyblokEditable(blok)} id="productsContainer" class='relative bg-gray-900 p-8 gap-8 text-gray-200'>
+
+
+</div> 
+  
+
